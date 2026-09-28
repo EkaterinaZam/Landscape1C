@@ -20,7 +20,7 @@
 
     // Баннер опроса «Состояние ландшафта 1С 2026» — включаем одним флагом
     // флаг боевой волны (см. docs/superpowers/specs/2026-08-22-survey-banner-design.md)
-    const SURVEY_BANNER_ENABLED = true;
+    const SURVEY_BANNER_ENABLED = false;
 
     // Состояние фильтров: для каждой оси — Set выбранных значений
     const state = {};
