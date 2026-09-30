@@ -404,7 +404,7 @@
         const banner = document.createElement("div");
         banner.className = "survey-banner";
         banner.innerHTML = `
-      <p class="survey-banner__text">Большой опрос «Состояние ландшафта 1С 2026» — расскажите, какими инструментами пользуетесь<br><a class="survey-banner__more" href="survey2026.html">Подробнее и предварительные итоги →</a></p>
+      <p class="survey-banner__text">Итоги опроса «Состояние ландшафта 1С 2026»<br><a class="survey-banner__more" href="survey2026.html">Смотреть результаты →</a></p>
       <div class="survey-banner__actions">
         <a href="https://t.me/stateOf1c_bot" target="_blank" rel="noopener">Telegram →</a>
         <a href="https://max.ru/se13951546_bot" target="_blank" rel="noopener">MAX →</a>

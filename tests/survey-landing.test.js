@@ -12,31 +12,20 @@ const runbook = fs.existsSync(runbookPath)
     ? fs.readFileSync(runbookPath, "utf8")
     : null;
 
-assert.match(page, /Состояние ландшафта 1С 2026/);
-assert.match(page, /Какими инструментами 1С пользуются на самом деле/);
-assert.match(page, /https:\/\/t\.me\/stateOf1c_bot/);
-assert.match(page, /https:\/\/max\.ru\/se13951546_bot/);
+assert.match(page, /Итоги опроса 2026/);
 assert.match(page, /https:\/\/landscape1c\.ru\/og-survey2026\.png/);
-assert.match(page, /Промежуточные результаты опроса 2026/);
-assert.doesNotMatch(page, /sv-landing__facts/);
+assert.match(page, /Итоги опроса 2026/);
+assert.match(page, /Финальные результаты опроса 2026/);
+assert.match(page, /Основная волна 2026/);
+assert.doesNotMatch(page, /Опрос продолжается/);
+assert.doesNotMatch(page, /sv-landing/);
 assert.doesNotMatch(page, /<aside class="filters"/);
 assert.match(page, /survey2026-current/);
 assert.match(page, /\$\("#who"\)\.addEventListener\("click"/);
 assert.doesNotMatch(page, /stateof1c-test-/);
-
-const landing = page.match(/<section class="sv-landing"[\s\S]+?<\/section>/)[0];
-assert.doesNotMatch(landing, /ё/i);
-assert.match(page, /@media \(hover: hover\)/);
-assert.match(page, /\.sv-answer:hover/);
-assert.match(page, /prefers-reduced-motion: reduce/);
-assert.match(page, /\.sv-landing__actions\s*\{[^}]*justify-content:\s*center/s);
-assert.match(page, /\.sv-landing__action\s*\{[^}]*min-height:\s*58px/s);
 assert.match(nav, /\["survey2026\.html", "Опрос 2026"\]/);
 assert.match(app, /const SURVEY_BANNER_ENABLED = false;/);
-assert.match(
-    app,
-    /href="survey2026\.html"[^>]*>Подробнее и предварительные итоги →/,
-);
+assert.match(app, /href="survey2026\.html"[^>]*>Смотреть результаты →/);
 assert.match(app, /https:\/\/t\.me\/stateOf1c_bot/);
 assert.match(app, /https:\/\/max\.ru\/se13951546_bot/);
 
