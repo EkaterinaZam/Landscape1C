@@ -463,6 +463,8 @@
             .survey .rng-row {
                 display: flex;
                 align-items: center;
+                margin-inline: -8px;
+                padding-inline: 8px;
             }
             .survey .rng-blk {
                 display: flex;
@@ -487,6 +489,28 @@
             }
             .survey .rng-row:hover {
                 background: var(--line);
+            }
+            .survey .rng-empty {
+                margin: 8px 0 0;
+                padding: 28px 16px 30px;
+                border-top: 1px solid var(--line);
+                border-bottom: 1px solid var(--line);
+                border-left: 3px solid var(--series);
+                color: var(--ink-soft);
+            }
+            .survey .rng-empty__title {
+                display: block;
+                font-family: var(--display);
+                font-size: clamp(17px, 2vw, 22px);
+                font-weight: 700;
+                line-height: 1.25;
+                color: var(--ink);
+            }
+            .survey .rng-empty__text {
+                display: block;
+                margin-top: 8px;
+                font-size: 13px;
+                line-height: 1.45;
             }
             .survey .rng-name {
                 display: flex;
@@ -1360,8 +1384,22 @@
                     })
                     .filter(Boolean)
                     .filter(
-                        (r) => !query || r.name.toLowerCase().includes(query),
+                        (r) =>
+                            !query ||
+                            [r.name, ...(ITEM.get(r.name)?.aliases || [])]
+                                .join(" ")
+                                .toLowerCase()
+                                .includes(query),
                     );
+                if (!rows.length) {
+                    rowByName.clear();
+                    $("#rng").innerHTML =
+                        '<div class="rng-empty" role="status">' +
+                        '<strong class="rng-empty__title">Не нашлось таких инструментов</strong>' +
+                        '<span class="rng-empty__text">Попробуйте изменить запрос или очистить поиск</span>' +
+                        "</div>";
+                    return;
+                }
                 // блоки ландшафта, внутри — по выбранной метрике (убывание)
                 const groups = window.LANDSCAPE.blocks
                     .map((b, bi) => ({
