@@ -1300,9 +1300,6 @@
                     `<div class="m-exp">${exp}</div></div>`;
                 return (
                     `<div class="tip-head">${logo(r.name)}<b>${r.name}</b></div>` +
-                    (LIVE
-                        ? `<span class="tip-sub">${sourceLabel(r.name)}</span>`
-                        : "") +
                     `<span class="tip-sub">${fmtN(r.total)} ${Pl(r.total, "ответ", "ответа", "ответов")} в Опросе 2026</span>` +
                     `<div class="tip-verdict ${v.cls}">${v.t}</div>` +
                     `<div class="tip-metrics">` +
