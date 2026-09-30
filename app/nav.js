@@ -122,6 +122,7 @@
     if (footLinks) footLinks.innerHTML = navLinks + ext("") + privacyLink;
 
     // ── Открытие/закрытие меню ──
+    var hoverOpenedAt = null;
     var toggles = document.querySelectorAll(".menu-toggle");
     var themeHead = menu.querySelector(".menu__theme-head");
     var themeList = menu.querySelector(".menu__theme-list");
@@ -134,6 +135,7 @@
         themeHead.setAttribute("aria-expanded", "false");
     }
     function setOpen(open) {
+        if (!open) hoverOpenedAt = null;
         menu.classList.toggle("is-open", open);
         toggles.forEach(function (b) {
             b.setAttribute("aria-expanded", open);
@@ -147,6 +149,15 @@
     toggles.forEach(function (b) {
         b.addEventListener("click", function (e) {
             e.stopPropagation();
+            // Первый быстрый клик после наведения оставляет меню открытым.
+            if (
+                e.detail > 0 &&
+                hoverOpenedAt !== null &&
+                performance.now() - hoverOpenedAt < 500
+            ) {
+                hoverOpenedAt = null;
+                return;
+            }
             setOpen(!isOpen());
         });
     });
@@ -188,6 +199,7 @@
         toggles.forEach(function (b) {
             b.addEventListener("mouseenter", function () {
                 cancel();
+                if (!isOpen()) hoverOpenedAt = performance.now();
                 setOpen(true);
             });
             b.addEventListener("mouseleave", later);
