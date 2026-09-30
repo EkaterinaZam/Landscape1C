@@ -75,7 +75,7 @@ test("генератор создает страницы инструменто�
     assert.match(surveyPage, />Работали<\/span><b>9%<\/b>/);
     assert.match(surveyPage, />Взяли бы снова .*<\/span><b>100%<\/b>/);
     assert.doesNotMatch(surveyPage, /tp__survey-metric/);
-    assert.match(surveyPage, /78 ответов в опросе/);
+    assert.match(surveyPage, /78 ответов в Опросе 2026/);
     assert.doesNotMatch(surveyPage, /tp__survey-note/);
 
     const pageWithoutSurvey = fs.readFileSync(

@@ -36,7 +36,7 @@ const PAGES = [
     ["graph.html", "Граф — связи инструментов: аналоги и зависимости"],
     [
         "survey2026.html",
-        "Большой опрос — инструменты 1С и итоги предварительного этапа",
+        "Итоги опроса 2026 — финальные результаты по инструментам 1С",
     ],
     ["council.html", "Эксперты — кураторы, выверяющие разметку"],
     ["methodology.html", "Методология — правила разметки осей"],
@@ -209,8 +209,7 @@ ${surveyLine("known", "Слышали или работали", survey.known)}
 ${surveyLine("used", "Работали", survey.used)}
 ${surveyLine("loyal", "Взяли бы снова", survey.loyal, `ответов: ${survey.loyalN}`)}
 ${surveyLine("want", "Хотят попробовать", survey.want, `ответов: ${survey.wantN}`)}
-<div class="stip-n">${h(survey.source)}</div>
-<div class="stip-n">${survey.n} ${plural(survey.n, "ответ", "ответа", "ответов")} в опросе</div>
+<div class="stip-n">${survey.n} ${plural(survey.n, "ответ", "ответа", "ответов")} в Опросе 2026</div>
 </div>
 </div>`
             : "";

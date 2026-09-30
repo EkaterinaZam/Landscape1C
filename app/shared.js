@@ -91,11 +91,7 @@
                 const n = u + h + x;
                 surveyCache.set(t.name, {
                     n, // всего ответивших по инструменту
-                    source:
-                        t.july === false
-                            ? "Итоги основной волны · " +
-                              new Date(S.generated).toLocaleDateString("ru-RU")
-                            : "Июль 2026",
+                    source: t.july === false ? "Опрос 2026" : "Июль 2026",
                     known: pct(u + h, n), // узнаваемость: слышали или работали
                     used: pct(u, n), // доля работавших
                     loyal: pct(ag, ag + no), // «взял бы снова» среди работавших

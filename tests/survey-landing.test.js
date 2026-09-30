@@ -15,8 +15,8 @@ const runbook = fs.existsSync(runbookPath)
 assert.match(page, /Итоги опроса 2026/);
 assert.match(page, /https:\/\/landscape1c\.ru\/og-survey2026\.png/);
 assert.match(page, /Итоги опроса 2026/);
-assert.match(page, /Финальные результаты опроса 2026/);
-assert.match(page, /Основная волна 2026/);
+assert.doesNotMatch(page, /Финальные результаты опроса 2026<\/span>/);
+assert.match(page, /Опрос 2026/);
 assert.doesNotMatch(page, /Опрос продолжается/);
 assert.doesNotMatch(page, /sv-landing/);
 assert.doesNotMatch(page, /<aside class="filters"/);

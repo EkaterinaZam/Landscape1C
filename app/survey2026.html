@@ -86,16 +86,6 @@
                 opacity: 0.7;
                 margin-top: 4px;
             }
-            .sv-stage {
-                padding: 11px clamp(16px, 3vw, 24px);
-                border-bottom: 2px solid var(--ink);
-                background: var(--ink);
-                color: var(--paper);
-                font-size: 11px;
-                font-weight: 700;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-            }
             .sv-content {
                 flex: 1;
                 min-width: 0;
@@ -847,9 +837,6 @@
         </header>
 
         <main class="survey" id="results">
-            <div class="sv-stage">
-                <span id="surveyStage">Финальные результаты опроса 2026</span>
-            </div>
             <div class="body">
                 <div class="sv-content">
                     <div class="sv-card">
@@ -937,7 +924,7 @@
         <div id="tip"></div>
 
         <script src="data.js?v=07d1f0fd"></script>
-        <script src="shared.js?v=9dedc4fe"></script>
+        <script src="shared.js?v=beb40e14"></script>
         <script src="survey2026.js?v=f66b77a1"></script>
         <script>
             window.SURVEY_JULY = window.SURVEY;
@@ -973,7 +960,7 @@
                 S ? S.tools.filter((t) => t.july).map((t) => t.name) : [],
             );
             const sourceLabel = (name) =>
-                julyNames.has(name) ? "Июль 2026" : "Основная волна 2026";
+                julyNames.has(name) ? "Июль 2026" : "Опрос 2026";
             const sourceBadge = (name) =>
                 julyNames.has(name)
                     ? '<small class="sv-source">Июль 2026</small>'
@@ -1052,17 +1039,6 @@
                 window.LandscapeUI.logoMarkup(ITEM.get(name) || {}, "sv-logo");
             const fmtN = (n) => n.toLocaleString("ru-RU");
             if (LIVE && S) {
-                const generated = new Date(S.generated).toLocaleString(
-                    "ru-RU",
-                    {
-                        day: "numeric",
-                        month: "long",
-                        hour: "2-digit",
-                        minute: "2-digit",
-                    },
-                );
-                $("#surveyStage").textContent =
-                    `Финальные результаты · данные на ${generated}`;
                 document.title = "Итоги опроса 2026 · Ландшафт 1С";
                 $("#respondentsTitle").textContent = "Участники опроса";
             }
@@ -1327,7 +1303,7 @@
                     (LIVE
                         ? `<span class="tip-sub">${sourceLabel(r.name)}</span>`
                         : "") +
-                    `<span class="tip-sub">${fmtN(r.total)} ${Pl(r.total, "ответ", "ответа", "ответов")} об инструменте</span>` +
+                    `<span class="tip-sub">${fmtN(r.total)} ${Pl(r.total, "ответ", "ответа", "ответов")} в Опросе 2026</span>` +
                     `<div class="tip-verdict ${v.cls}">${v.t}</div>` +
                     `<div class="tip-metrics">` +
                     row(

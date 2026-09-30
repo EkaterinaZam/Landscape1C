@@ -74,7 +74,7 @@ assert.equal(
 const command = fs.readFileSync(commandFile, "utf8");
 assert.match(page, /survey2026-live\.js/);
 assert.match(page, /get\("data"\) === "live"/);
-assert.match(page, /id="surveyStage"/);
+assert.doesNotMatch(page, /sv-stage|surveyStage/);
 assert.match(page, /<main class="survey" id="results">/);
 assert.match(page, /Участники опроса/);
 assert.match(page, /stateof1c-final-/);

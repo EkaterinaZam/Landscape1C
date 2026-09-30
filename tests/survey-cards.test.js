@@ -22,7 +22,7 @@ assert.equal(current.used, 50);
 assert.equal(current.loyal, 67);
 assert.equal(current.loyalN, 3);
 assert.equal(current.want, null);
-assert.match(current.source, /Итоги основной волны/);
+assert.equal(current.source, "Опрос 2026");
 assert.equal(window.LandscapeUI.surveyOf("Июльский").source, "Июль 2026");
 assert.equal(window.LandscapeUI.surveyOf("Нет"), null);
 console.log("survey cards: ok");
